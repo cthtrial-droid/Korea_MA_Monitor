@@ -116,7 +116,7 @@
 
 <script>
 /* ===== 데이터 (기준일 2026-07-01) ===== */
-const META = {asOf:"2026-07-01", trackingStart:"2026-06-25", lastUpdated:"2026-07-01 (전건 재검증 반영)", floor:500,
+const META = {asOf:"2026-07-02", trackingStart:"2026-06-25", lastUpdated:"2026-07-02 08:05 KST (전건 재검증 반영·신규 1건[넥스플렉스]·수정 1건[롯데손보 희망가 하향])", floor:500,
   note:"공개 보도 기반 추적 자료. 거래규모는 시장 거론치·시가총액 등 추정치를 포함하므로 실제 체결가와 상이할 수 있음. 매도자·인수후보·진행단계는 비공개 협상에 따라 수시 변동되며 공개 보도 대비 시차가 존재함. 한화그룹 관련 딜은 거래규모 하한과 무관하게 포함함. 우선협상대상자(우협)는 단일 확정 보도가 있는 건에 한해 표기하며, 후보 경합 건은 'N파전·우협 미정'으로 표기함. 추적 개시일 2026-06-25 — 개시일에 포착된 건은 '계속'으로, 익일 이후 신규 포착 건은 '신규'로 구분됨. 본 자료는 투자 권유가 아니며 내부 검토 참고용임."};
 const DEALS = [
   {target:"애큐온캐피탈(+애큐온저축은행 패키지)",sector:"여신전문(캐피탈)·저축은행",seller:"EQT파트너스(지분 96.06%)",buyer:"한화생명(우협 선정·패키지 통매각)",size:10000,sizeNote:"인수가 1조원 안팎 거론, 통매각",type:"PEF 엑시트",stage:"한화생명 우협 선정(6/30 공식 통보)·SPA 협상 단계",stageRank:5,date:"2026-06-30",firstSeen:"2026-06-25",hanwha:true,note:"[수정] EQT, 6/30 한화생명을 단독 우협으로 공식 통보(메리츠금융·바이칼 제치고). 패키지 = 애큐온캐피탈 96.06%(총자산 약 9조)+애큐온저축은행 100%(총자산 약 5조) 통매각. 한화생명=보험·증권·운용·저축銀에 캐피탈까지 더한 종합금융 영토확장, 인수 시 자산 10조 이상 확대. 매도자 EQT(구 베어링PEA). 주관사 UBS·씨티. 대주주변경 승인·SPA 체결이 후속 관문. 당사 자체 인수 타당성 검토 대상이었던 건이며 우협 확정에 따라 모니터링 전환.",source:"헤럴드경제·뉴스웨이",url:"https://biz.heraldcorp.com/article/10792307"},
@@ -130,10 +130,11 @@ const DEALS = [
   {target:"콘텐트리중앙·메가박스 (중앙그룹)",sector:"미디어·콘텐츠·영화관·부동산(사옥)",seller:"중앙그룹(회생절차)",buyer:"사옥 패키지 우협 코람코자산신탁(세일앤리스백)",size:5500,sizeNote:"중앙일보·JTBC빌딩·일산스튜디오 등 사옥 약 5,500억(우협 코람코)",type:"구조조정·공개매각",stage:"4개사 회생개시 결정(JTBC는 ARS로 7/30 보류)·사옥 5,500억 코람코 세일앤리스백",stageRank:3,date:"2026-06",firstSeen:"2026-06-26",hanwha:false,note:"[단계변동] 6/12 JTBC 유동화차입금 206억 디폴트→6/14~15 중앙홀딩스·콘텐트리중앙·메가박스중앙·중앙피앤아이 회생 신청, 법원이 4개사 회생개시 결정. JTBC는 자율구조조정(ARS) 진행으로 회생개시 7/30까지 보류. 사옥 3곳(약 5,500억) 우협 코람코자산신탁이 리츠로 자금모집, 중앙일보·JTBC 10년 장기임차하는 세일앤리스백 구조(클로징 8월말 목표). 메가박스(5년 연속 영업적자) 회생계획상 자산매각 가능성 잔존.",source:"서울경제·한국경제",url:"https://www.sedaily.com/article/20056417"},
   {target:"카카오게임즈",sector:"게임(모바일·PC)",seller:"카카오(지분 14.68%로 축소·2대주주)",buyer:"라인야후 출자 SPC LAAA인베스트먼트(33.43% 최대주주)·페트리코파트너스",size:4889,sizeNote:"경영권 인수대금 총 4,889억원(자기자금 약 4,100억+차입 약 789억)",type:"경영권 매각",stage:"최대주주 변경 완료(6/19 인수 종결)·공동대표 체제 전환",stageRank:5,date:"2026-06-19",firstSeen:"2026-07-01",hanwha:false,note:"[신규][종결] 카카오가 카카오게임즈 경영권을 라인야후 출자 SPC '엘트리플에이(LAAA)인베스트먼트'에 매각. 6/19 인수 종결, 라인야후 지분 33.43%로 최대주주 등극·카카오는 14.68%로 2대주주 하락. 국내 PEF 페트리코파트너스 공동 참여, 한국투자증권 등 차입. 임시주총서 신규 사내이사 선임·공동대표 체제 전환. 게임 철수 vs 재도약 향방 주목.",source:"딜사이트·파이낸셜뉴스",url:"https://dealsite.co.kr/articles/162183"},
   {target:"테일러메이드",sector:"골프용품",seller:"센트로이드인베스트먼트(PEF)",buyer:"올드톰캐피털 우협 박탈 → 신규 원매자 협상",size:40000,sizeNote:"올드톰 본입찰 약 4조(30억달러) 제시 후 박탈, 현재 4조대 거론",type:"PEF 엑시트",stage:"우협 지위 박탈·신규 원매자 협상(원점)·연내 클로징 목표",stageRank:2,date:"2026-06",firstSeen:"2026-06-25",hanwha:false,note:"[계속] 올드톰캐피털이 LOC·자금증빙 미제출로 우협 박탈(우협 4개월 만). 센트로이드, 신규 원매자와 상당부분 공감대·연내 클로징 목표. 매각가 4조원대 수준 거론(당초 주장 5조대 입찰은 부재 확인). F&F(중후순위 LP) 우선매수권·사전동의권 보유, 매각 제동 변수 잔존.",source:"이데일리 마켓인",url:"https://marketin.edaily.co.kr/News/Read?newsId=05021686645414480"},
+  {target:"넥스플렉스",sector:"소재·스마트폰 폴리이미드(PI)필름(국내 1위)",seller:"MBK파트너스(스페셜시추에이션스 펀드)",buyer:"스틱-어펄마 컨소·베인캐피탈·부산EP·태광그룹(+FI) 숏리스트",size:9000,sizeNote:"인수가 약 9,000억원 거론(추정, 몸값 8,000억 상회)",type:"PEF 엑시트",stage:"숏리스트 선정·실사 착수·본입찰 7월 초·중순 예정",stageRank:3,date:"2026-06",firstSeen:"2026-07-02",hanwha:false,note:"[신규] MBK 스페셜시추에이션스 펀드 보유 넥스플렉스(구 일진머티리얼즈 소재부문 계열) 엑시트. 매각주관사 도이치뱅크가 예비입찰 참여자 대상 숏리스트 통보 → 스틱인베스트먼트-어펄마캐피탈 컨소시엄·베인캐피탈·부산EP가 숏리스트, 태광그룹도 FI와 인수전 참여. 숏리스트 실사 후 7월 초·중순 본입찰→우협 선정 예정. 스마트폰용 PI필름 1위 지위·EBITDA 대비 몸값 8,000억 상회 거론. 인수가 총 9,000억원 규모 보도.",source:"인베스트조선·블로터",url:"https://www.investchosun.com/site/data/html_dir/2026/06/02/2026060280133.html"},
   {target:"SK마이크로웍스솔루션즈",sector:"소재·특수필름",seller:"한앤컴퍼니(PEF)",buyer:"해외 원매자+국내 SI 투트랙 물색",size:20000,sizeNote:"몸값 약 2조원 거론(EBITDA 1,213억·마진 27%+)",type:"PEF 엑시트",stage:"매각 본격화·주관사(UBS·국내 회계법인) 선정",stageRank:2,date:"2026-06",firstSeen:"2026-06-25",hanwha:false,note:"[계속] 주관사 UBS·국내 대형 회계법인. IPO 추진하다 매각 전환. 국·영문 사명서 'SK' 제거(독립 브랜드화). 24년 매출 4,448억.",source:"서울경제",url:"https://www.sedaily.com/article/14162322"},
   {target:"골프존카운티",sector:"골프장 운영(국내 1위·21개소)",seller:"MBK파트너스(지분 100%, CPS전환·드래그얼롱 활용)",buyer:"국내 기업·대형 PEF 3~4곳 LOI(맥쿼리 불참)",size:20000,sizeNote:"몸값 약 2조원 거론(24년 EBITDA 1,500억×약 13.3배)",type:"PEF 엑시트",stage:"예비입찰 마감(6/29)·LOI 3~4곳·본입찰 7월 예정",stageRank:3,date:"2026-06",firstSeen:"2026-06-25",hanwha:false,note:"[계속] MBK 'SS 1호' 펀드 엑시트. 예비입찰 6/29 마감, NDA 20여곳·LOI 3~4곳(맥쿼리 불참), 숏리스트 선정 후 본입찰 7월 예정. 24년 매출 2,852억·영업익 811억. 주관사 모건스탠리·삼정KPMG. 유형자산 약 1.4조(대부분 토지)로 하방 안정성.",source:"서울경제·더벨",url:"https://m.sedaily.com/amparticle/20043602"},
   {target:"롯데카드",sector:"여신전문(카드)",seller:"MBK파트너스(지분 59.8%)",buyer:"우리금융 인수 검토 거론(초기단계)·원매자 재물색",size:20000,sizeNote:"몸값 약 2조원 거론(인수원가 1.38조), 해킹사태로 하향·표류",type:"PEF 엑시트",stage:"재매각 추진(UBS 주관)·예비입찰 무응찰·우리금융과 인수 논의(초기)",stageRank:1,date:"2026-06",firstSeen:"2026-06-25",hanwha:false,note:"[수정] MBK 2019년 인수 후 재매각 재시동(2022년 3조대→올해 2조대로 하향). 매각대상은 SPC '한국리테일카드홀딩스' 보유 59.8%. 회원 297만명 정보유출 사고로 예비입찰 무응찰(네이버·카카오도 인수의사 없음)이었으나, 최근 MBK·우리금융이 인수 놓고 초기 단계 논의 진행 보도. 금감원 보안 지적·홈플러스 카드대금 부실 등 악재 잔존, 강제·손절매각 가능성도 거론.",source:"이데일리·딜사이트경제TV",url:"https://marketin.edaily.co.kr/News/Read?newsId=03424326642170560"},
-  {target:"롯데손해보험",sector:"손해보험",seller:"JKL파트너스(SPC 빅튜라, 지분 77.04%)",buyer:"한국투자금융지주 vs 신한금융 2파전",size:15000,sizeNote:"매각희망가 1.5조 중반대 거론(원매자 부담), 구주+신주 병행 가능성",type:"PEF 엑시트",stage:"한투·신한 2파전·한투 LOI 제출·8월 공개매각 절차 예정",stageRank:2,date:"2026-06",firstSeen:"2026-06-25",hanwha:false,note:"[수정] 가격 조정으로 매각 재시동, 한국투자금융지주가 LOI 제출·신한금융이 내부 검토 이어가며 한투 vs 신한 2파전으로 압축(우리금융은 동양·ABL생명 인수로 이탈). JKL이 8월 공개매각 절차를 앞두고 복수 LOI 수취. JKL 희망가 1.5조 중반대에 원매자 부담, 당국 자본확충 요구로 구주(77.04%)+신주 병행 구조 가능성. 주관사 삼정KPMG. 이중레버리지비율·밸류 눈높이차가 변수.",source:"오늘경제·아주경제",url:"https://www.ajunews.com/view/20260629074009949"},
+  {target:"롯데손해보험",sector:"손해보험",seller:"JKL파트너스(SPC 빅튜라, 지분 77.04%)",buyer:"한국투자금융지주 vs 신한금융 2파전",size:10000,sizeNote:"매각희망가 최근 2조→1조 안팎으로 하향 거론(추정), 구주+신주 병행 가능성",type:"PEF 엑시트",stage:"한투·신한 2파전·한투 LOI 제출·8월 공개매각 절차 예정",stageRank:2,date:"2026-06",firstSeen:"2026-06-25",hanwha:false,note:"[수정] JKL이 희망 매각가를 기존 2조원 수준에서 최근 1조원 안팎으로 하향(가격 조정)하며 매각 재시동. 한국투자금융지주가 LOI 제출·신한금융은 아직 LOI 미제출이나 인수 가능성 열어두고 내부 검토 지속 → 사실상 한투 vs 신한 2파전(우리금융은 동양·ABL생명 인수로 이탈). JKL 8월 공개매각 절차 앞두고 복수 LOI 수취. 롯데손보 3월 금융위 적기시정조치 2단계(경영개선요구)·약 1.2조 자본확충 부담이 밸류 변수. 주관사 삼정KPMG.",source:"이투데이·아주경제",url:"https://www.ajunews.com/view/20260629074009949"},
   {target:"KAI (한화 지분 매집)",sector:"항공·방산",seller:"장내 취득",buyer:"한화에어로스페이스·한화시스템·한화에어로USA",size:6250,sizeNote:"6/16 누적 지분 9.04%(한화에어로 6.50%·한화시스템 1.53%·USA 1.01%), 연내 12.5% 목표",type:"지분매각",stage:"지분 9.04% 확보·2대주주 등극, 연말까지 12.5% 확대 결의",stageRank:4,date:"2026-06",firstSeen:"2026-06-25",hanwha:true,note:"[계속] 한화, 6/16 KAI 지분 9.04% 확보해 국민연금(8.12%)을 제치고 수은(26.41%)에 이은 2대주주. 한화에어로(5,000억)·한화시스템(1,250억) 투입, 연말까지 한화에어로 추가 5,000억 취득 결의 → 그룹 합산 12.5% 전망. 보유목적 '경영참여' 명기. 육·해·공·우주 통합 방산 밸류체인 포석.",source:"인베스트조선·블로터",url:"https://www.bloter.net/news/articleView.html?idxno=665672"},
   {target:"한화오션 (한화시스템 보유지분 매각)",sector:"조선·방산",seller:"한화시스템(보유 11.57% 중 4.54%)",buyer:"증권 4사 SPC(PRS 계약)",size:17000,sizeNote:"지분 4.54% 약 1.7조원",type:"지분매각",stage:"매각 완료(4/6 양도·PRS 체결)",stageRank:5,date:"2026-03",firstSeen:"2026-06-25",hanwha:true,note:"[계속·완료] 미국 조선·방산(마스가) 확장 자금 선제 확보 목적. NH·한투·미래·대신 SPC에 양도, PRS 계약. 한화시스템 잔여 지분 7.03%.",source:"인베스트조선·서울경제",url:"https://www.investchosun.com/site/data/html_dir/2026/03/06/2026030680218.html"},
   {target:"글로벌세아 제지부문",sector:"제지(태림페이퍼·태림포장·전주페이퍼)",seller:"글로벌세아그룹(세아상역, 태림페이퍼 100%)",buyer:"(통매각 검토 중단·매각 철회)",size:20000,sizeNote:"희망가 약 2조원(EV/EBITDA 10배)이 업계 멀티플 대비 과도, 눈높이차로 무산",type:"사업부 매각",stage:"통매각 검토 중단(6/29 그룹 공식 발표)·캐시카우로 보유 전환",stageRank:0,date:"2026-06-29",firstSeen:"2026-06-25",hanwha:false,note:"[종결] 6/29 글로벌세아 '제지 계열사 통매각 검토 중단' 공식 발표. 예비입찰에 FI 3~4곳 LOI 제출했으나 매도자 희망가(2조)와 원매자 평가(EV 2조 수용 곤란) 간 눈높이차로 무산. 그룹은 제지부문을 통합시너지·캐시카우로 보유·육성 방침. 향후 재매각 추진 여부 모니터링 대상.",source:"헤럴드경제·아시아투데이",url:"https://biz.heraldcorp.com/article/10791663"},
@@ -181,28 +182,4 @@ function render(){
   if(state.q){const q=state.q.toLowerCase();
     list=list.filter(d=>(d.target+d.seller+d.buyer+d.sector).toLowerCase().includes(q));}
   const k=state.sort;
-  list.sort((a,b)=> (typeof a[k]==='number'? b[k]-a[k] : String(b[k]).localeCompare(String(a[k]))) );
-
-  // KPI
-  document.getElementById('k-count').innerHTML=list.length+' <small>건</small>';
-  const tot=list.reduce((s,d)=>s+(d.size||0),0);
-  document.getElementById('k-size').innerHTML=fmt(tot);
-  document.getElementById('k-new').innerHTML=list.filter(d=>daysBetween(d.firstSeen,META.asOf)<=0).length+' <small>건</small>';
-  document.getElementById('k-hw').innerHTML=list.filter(d=>d.hanwha).length+' <small>건</small>';
-  document.getElementById('count').textContent=list.length+'건 표시';
-
-  document.getElementById('rows').innerHTML=list.map(d=>`
-    <tr class="${d.hanwha?'hw-row':''}">
-      <td>${statusBadge(d)}</td>
-      <td><span class="tgt">${d.target}${d.hanwha?'<span class="hw">한화</span>':''}<span class="sec">${d.sector}</span></span></td>
-      <td><span class="pill ${typeClass(d.type)}">${d.type}</span></td>
-      <td><span class="size">${fmt(d.size)}<small>${d.sizeNote}</small></span></td>
-      <td>${d.seller}<br><span style="color:var(--muted)">→ ${d.buyer}</span></td>
-      <td><span class="stage">${d.stage}</span><div class="stbar"><i style="width:${Math.max(d.stageRank,0)*20}%"></i></div><div class="note">${d.note}</div></td>
-      <td class="src"><a href="${d.url}" target="_blank">${d.source} ↗</a></td>
-    </tr>`).join('');
-}
-render();
-</script>
-</body>
-</html>
+  list.sort((a,b)=> (typeof a[k]==='number'? b[k]-a[k] : String(b[k]).localeCompare(String(a[k]))) 
