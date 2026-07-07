@@ -173,4 +173,42 @@ hwBtn.onclick=()=>{state.hwOnly=!state.hwOnly;hwBtn.classList.toggle('on',state.
 document.querySelectorAll('thead th').forEach(th=>{th.onclick=()=>{
   const k=th.dataset.k; const map={size:'size',stage:'stageRank',status:'firstSeen'};
   if(map[k]){state.sort=map[k];state.dir*=-1;render();}
-};})
+};});
+
+function statusBadge(d){
+  const age=daysBetween(d.firstSeen, META.asOf);
+  if(age<=0) return '<span class="st st-new">🆕 신규</span>';
+  return `<span class="st st-cont">계속 D+${age}</span><div class="note">최초 ${d.firstSeen}</div>`;
+}
+
+function render(){
+  let list=DEALS.filter(d=>state.types.has(d.type));
+  if(state.hwOnly) list=list.filter(d=>d.hanwha);
+  if(state.q){const q=state.q.toLowerCase();
+    list=list.filter(d=>(d.target+d.seller+d.buyer+d.sector).toLowerCase().includes(q));}
+  const k=state.sort;
+  list.sort((a,b)=> (typeof a[k]==='number'? b[k]-a[k] : String(b[k]).localeCompare(String(a[k]))) );
+
+  // KPI
+  document.getElementById('k-count').innerHTML=list.length+' <small>건</small>';
+  const tot=list.reduce((s,d)=>s+(d.size||0),0);
+  document.getElementById('k-size').innerHTML=fmt(tot);
+  document.getElementById('k-new').innerHTML=list.filter(d=>daysBetween(d.firstSeen,META.asOf)<=0).length+' <small>건</small>';
+  document.getElementById('k-hw').innerHTML=list.filter(d=>d.hanwha).length+' <small>건</small>';
+  document.getElementById('count').textContent=list.length+'건 표시';
+
+  document.getElementById('rows').innerHTML=list.map(d=>`
+    <tr class="${d.hanwha?'hw-row':''}">
+      <td>${statusBadge(d)}</td>
+      <td><span class="tgt">${d.target}${d.hanwha?'<span class="hw">한화</span>':''}<span class="sec">${d.sector}</span></span></td>
+      <td><span class="pill ${typeClass(d.type)}">${d.type}</span></td>
+      <td><span class="size">${fmt(d.size)}<small>${d.sizeNote}</small></span></td>
+      <td>${d.seller}<br><span style="color:var(--muted)">→ ${d.buyer}</span></td>
+      <td><span class="stage">${d.stage}</span><div class="stbar"><i style="width:${Math.max(d.stageRank,0)*20}%"></i></div><div class="note">${d.note}</div></td>
+      <td class="src"><a href="${d.url}" target="_blank">${d.source} ↗</a></td>
+    </tr>`).join('');
+}
+render();
+</script>
+</body>
+</html>
