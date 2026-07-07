@@ -179,9 +179,11 @@ document.querySelectorAll('thead th').forEach(th=>{th.onclick=()=>{
 
 function statusBadge(d){
   const age=daysBetween(d.firstSeen, META.asOf);
-  const reset = d.reset ? `<span class="st st-reset">🔄 원점회귀</span><br>` : '';
+  // 원점회귀 배지는 리셋 발생일로부터 30일간만 노출(경과 시 자동 해제)
+  const resetActive = d.reset && daysBetween(d.reset, META.asOf) <= 30;
+  const reset = resetActive ? `<span class="st st-reset">🔄 원점회귀</span><br>` : '';
   if(age<=0) return reset+'<span class="st st-new">🆕 신규</span>';
-  const info = `<div class="note">최초 ${d.firstSeen}${d.reset?` · 리셋 ${d.reset}`:''}</div>`;
+  const info = `<div class="note">최초 ${d.firstSeen}${resetActive?` · 리셋 ${d.reset}`:''}</div>`;
   return reset+`<span class="st st-cont">계속 D+${age}</span>`+info;
 }
 
