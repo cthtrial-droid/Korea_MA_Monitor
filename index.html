@@ -63,6 +63,7 @@
   .st{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:99px;white-space:nowrap}
   .st-new{background:var(--green);color:#04210f}
   .st-cont{background:var(--line);color:var(--muted)}
+  .st-reset{background:var(--amber);color:#3a2600;margin-bottom:3px}
   .hw{display:inline-block;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px;background:#f97316;color:#1a0e00;margin-left:5px;vertical-align:middle}
   tr.hw-row{background:rgba(249,115,22,.07)}
   tr.hw-row:hover{background:rgba(249,115,22,.13)}
@@ -117,12 +118,12 @@
 
 <script>
 /* ===== 데이터 (기준일 2026-07-07) ===== */
-const META = {asOf:"2026-07-07", trackingStart:"2026-06-25", lastUpdated:"2026-07-07 07:34 KST (전건 재검증 반영·신규 1건[배달의민족(우아한형제들) DH 매각 7/21 본입찰]·단계변동 1건[이지스자산운용 힐하우스 인수 철회→매각 원점])", floor:500,
+const META = {asOf:"2026-07-07", trackingStart:"2026-06-25", lastUpdated:"2026-07-07 07:34 KST (전건 재검증 반영·신규 1건[배달의민족(우아한형제들) DH 매각 7/21 본입찰]·원점회귀 1건[이지스자산운용 힐하우스 인수 철회→매각 원점])", floor:500,
   note:"공개 보도 기반 추적 자료. 거래규모는 시장 거론치·시가총액 등 추정치를 포함하므로 실제 체결가와 상이할 수 있음. 매도자·인수후보·진행단계는 비공개 협상에 따라 수시 변동되며 공개 보도 대비 시차가 존재함. 한화그룹 관련 딜은 거래규모 하한과 무관하게 포함함. 우선협상대상자(우협)는 단일 확정 보도가 있는 건에 한해 표기하며, 후보 경합 건은 'N파전·우협 미정'으로 표기함. 추적 개시일 2026-06-25 — 개시일에 포착된 건은 '계속'으로, 익일 이후 신규 포착 건은 '신규'로 구분됨. 본 자료는 투자 권유가 아니며 내부 검토 참고용임."};
 const DEALS = [
   {target:"배달의민족 (우아한형제들)",sector:"음식배달 플랫폼(국내 1위)",seller:"딜리버리히어로(DH, 지분 약 88%)",buyer:"우버·네이버·알리바바·메이투안 등 잠재후보 거론(7/21 본입찰)",size:80000,sizeNote:"DH 희망 매각가 약 8조원(2019년 인수가 약 4.8조의 2배), 추정·거론치",type:"경영권 매각",stage:"티저레터 발송·7/21 구속력 있는 인수제안서(본입찰) 접수 예정(우버 지분확대 변수로 완주 불확실)",stageRank:3,date:"2026-07",firstSeen:"2026-07-07",hanwha:false,note:"[신규] 독일 딜리버리히어로(DH)가 보유 우아한형제들(배달의민족) 경영권 지분 매각 추진. 매각주관 JP모건, 네이버·우버·알리바바·메이투안디엔핑 등에 티저레터 발송, 원매자들이 7/21 구속력 있는 인수제안서(바인딩 오퍼)를 제출할 예정. DH 희망가 약 8조원(2019년 지분 87% 인수가 36억유로≈4.8조의 2배 수준). 다만 우버가 모회사 DH 지분을 확대하며 매각 구도에 변수가 생겨 예정대로 완주될지는 미지수라는 평가. 국내 배달 플랫폼 경쟁 심화로 수익성 둔화(영업이익 23년 6,998억→24년 6,408억→25년 5,928억 3년 연속 감소)가 밸류 부담. 국내 최대 플랫폼 딜로 규모·파급력 상당, 공정위 기업결합·해외자본 심사가 관문.",source:"인베스트조선·아시아경제",url:"https://www.investchosun.com/site/data/html_dir/2026/06/08/2026060880160.html"},
   {target:"애큐온캐피탈(+애큐온저축은행 패키지)",sector:"여신전문(캐피탈)·저축은행",seller:"EQT파트너스(지분 96.06%)",buyer:"한화생명(우협 선정·패키지 통매각)",size:10000,sizeNote:"인수가 1조원 안팎 거론, 통매각",type:"PEF 엑시트",stage:"한화생명 우협·SPA 협상 단계(1개월 내 인수 관련 추가 공시 예고)",stageRank:5,date:"2026-06-30",firstSeen:"2026-06-25",hanwha:true,note:"[계속] EQT, 6/30 한화생명을 단독 우협으로 공식 통보(메리츠증권·바이칼 제치고). 패키지 = 애큐온캐피탈 96.06%(총자산 약 9조)+애큐온저축은행 100%(총자산 약 5조) 통매각. 한화생명=보험·증권·운용·저축銀에 캐피탈까지 더한 종합금융 영토확장, 인수 시 자산 10조 이상 확대. 한화생명 측 '우협 선정됐으나 최종 인수 확정까지 남은 절차 만만치 않다'며 1개월 이내 인수 관련 추가 공시 예고. 매도자 EQT(구 베어링PEA). 주관사 UBS·씨티. 대주주변경 승인·SPA 체결이 후속 관문. 당사 자체 인수 타당성 검토 대상이었던 건이며 우협 확정에 따라 모니터링 전환.",source:"헤럴드경제·네이트뉴스",url:"https://biz.heraldcorp.com/article/10792307"},
-  {target:"이지스자산운용",sector:"부동산 자산운용(국내 1위)",seller:"창업주 손화자 일가 등 최대주주(손화자 12.4%)",buyer:"힐하우스 인수 철회(7/6) → 매각 원점·새 원매자 물색",size:11000,sizeNote:"직전 우협가 약 1.1조원(힐하우스), 현재 거래 중단·재매각 밸류 미정",type:"경영권 매각",stage:"힐하우스 인수 철회(7/6, 계약금 1,000억 미납)·매각 원점·새 원매자 물색",stageRank:2,date:"2026-07-06",firstSeen:"2026-06-25",hanwha:false,note:"[단계변동] 힐하우스인베스트먼트가 7/6 이지스운용 주주단에 인수 결정 철회를 통보하며 매각이 원점으로 회귀. 힐하우스는 금융당국 대주주 적격성 심사를 단기간 내 통과하기 어렵다고 판단, 계약금 1,000억원을 미납. 당국이 '중국계 자본' 프레임에 더해 대출 중심 인수구조(인수 후 배당으로 차입 상환하는 LBO 방식)에 제동을 건 점, 최대 LP 국민연금의 매각 부정적 기류, 탈락한 흥국생명(1.05조 제시)의 매각주관사·최대주주 경찰 고소 등이 복합 작용. 매각 측(주관사 모건스탠리·골드만삭스)은 새 원매자 물색 중이나 당분간 이지스 독자경영 체제 전망. 직전(6개월) 진행되던 힐하우스 1.1조 우협 딜은 사실상 무산.",source:"서울경제·파이낸셜뉴스",url:"https://www.sedaily.com/article/20064433"},
+  {target:"이지스자산운용",sector:"부동산 자산운용(국내 1위)",seller:"창업주 손화자 일가 등 최대주주(손화자 12.4%)",buyer:"힐하우스 인수 철회(7/6) → 매각 원점·새 원매자 물색",size:11000,sizeNote:"직전 우협가 약 1.1조원(힐하우스), 현재 거래 중단·재매각 밸류 미정",type:"경영권 매각",stage:"힐하우스 인수 철회(7/6, 계약금 1,000억 미납)·매각 원점·새 원매자 물색",stageRank:2,date:"2026-07-06",firstSeen:"2026-06-25",reset:"2026-07-06",hanwha:false,note:"[원점회귀] 힐하우스인베스트먼트가 7/6 이지스운용 주주단에 인수 결정 철회를 통보하며 매각이 원점으로 회귀. 힐하우스는 금융당국 대주주 적격성 심사를 단기간 내 통과하기 어렵다고 판단, 계약금 1,000억원을 미납. 당국이 '중국계 자본' 프레임에 더해 대출 중심 인수구조(인수 후 배당으로 차입 상환하는 LBO 방식)에 제동을 건 점, 최대 LP 국민연금의 매각 부정적 기류, 탈락한 흥국생명(1.05조 제시)의 매각주관사·최대주주 경찰 고소 등이 복합 작용. 매각 측(주관사 모건스탠리·골드만삭스)은 새 원매자 물색 중이나 당분간 이지스 독자경영 체제 전망. 직전(6개월) 진행되던 힐하우스 1.1조 우협 딜은 사실상 무산.",source:"서울경제·파이낸셜뉴스",url:"https://www.sedaily.com/article/20064433"},
   {target:"엠앤씨솔루션",sector:"방산(조준경·정밀광학)",seller:"소시어스PE·웰투시 컨소시엄(지분 73.78%)",buyer:"한국투자파트너스 PE본부(우협, SPA 임박)",size:10000,sizeNote:"경영권 지분 73.78%, 매각가 약 1조원 거론(시총 대비 프리미엄)",type:"경영권 매각",stage:"확인실사 완료·SPA 체결 임박(당초 상반기 목표 경과·본계약 지연)",stageRank:5,date:"2026-06",firstSeen:"2026-06-25",hanwha:false,note:"[계속] 한투파트너스 PE 우협(3/12 선정)·확인실사 완료. 당초 상반기 내 SPA 체결 목표였으나 7월 현재 미체결로 다소 지연, 가격·구조상 큰 쟁점은 부재해 본계약 논의는 지속. 지난달 15일 소시어스·웰투시 보유지분 보호예수 해제. 주관사 UBS. 기업결합심사·방위사업청 대주주변경 승인 후 하반기 클로징 목표. (참고: 일부 매체는 한화·LIG·풍산 등 방산 SI를 잠재후보로 거론하나 공식 우협은 한투파트너스.)",source:"헤럴드경제·뉴스톱",url:"https://biz.heraldcorp.com/article/10694933"},
   {target:"파이브가이즈 (에프지코리아)",sector:"외식(수제버거 프랜차이즈)",seller:"한화갤러리아",buyer:"H&Q코리아(우협, 본실사 착수)",size:440,sizeNote:"당초 700억 거론(EBITDA 100억×7배)→실제 EBITDA 63억 반영 시 440억대로 하향 거론(추정)",type:"경영권 매각",stage:"우협 H&Q·MOU 체결·본실사 후 SPA 협상 예정(상반기 거래 목표 경과·가격 조정 국면)",stageRank:4,date:"2026-06",firstSeen:"2026-06-26",hanwha:true,note:"[계속] 한화갤러리아가 보유 파이브가이즈 한국사업(에프지코리아) 경영권 지분 매각, H&Q에쿼티파트너스 우협. 실사 후 SPA 협상 예정이나 수익성 둔화(24년 매출 538억·영업익 급감, EBITDA 63억)로 당초 600~700억대 거론 몸값이 440억대로 하향 조정 거론 → 가격이 최종 변수. 김동선 부사장 주도 매각·백화점 본업 집중.",source:"이투데이·인베스트조선",url:"https://www.etoday.co.kr/news/view/2592212"},
   {target:"율곡",sector:"방산·항공부품(KAI 협력사)",seller:"JKL파트너스·WJ PE(지분 47.09%)",buyer:"스틱·앵커·KCGI·VIG 4파전",size:6000,sizeNote:"추정(지분 100% 기준 기업가치 5,000억 상회 거론, 매출 25년 1,288억)",type:"PEF 엑시트",stage:"본입찰 약 1주 연기(흥행)·4파전·우협 임박(미확정)",stageRank:3,date:"2026-06",firstSeen:"2026-06-25",hanwha:false,note:"[계속] 프리미어파트너스 이탈, 본입찰은 스틱·앵커·KCGI·VIG 4파전 압축. 스틱·KCGI는 SI와 연합(안정성 전략), VIG는 이스타항공 등 항공 트랙레코드 활용. 원매자 투심위 일정 고려 본입찰 약 1주 연기, 우협 미확정 상태 지속. 고용안정협약이 우협 선정 막판 변수. 주관사 삼일PwC. 매출 23년 969억→24년 1,173억→25년 1,288억 성장세.",source:"헤럴드경제·블로터",url:"https://biz.heraldcorp.com/article/10762607"},
@@ -178,8 +179,10 @@ document.querySelectorAll('thead th').forEach(th=>{th.onclick=()=>{
 
 function statusBadge(d){
   const age=daysBetween(d.firstSeen, META.asOf);
-  if(age<=0) return '<span class="st st-new">🆕 신규</span>';
-  return `<span class="st st-cont">계속 D+${age}</span><div class="note">최초 ${d.firstSeen}</div>`;
+  const reset = d.reset ? `<span class="st st-reset">🔄 원점회귀</span><br>` : '';
+  if(age<=0) return reset+'<span class="st st-new">🆕 신규</span>';
+  const info = `<div class="note">최초 ${d.firstSeen}${d.reset?` · 리셋 ${d.reset}`:''}</div>`;
+  return reset+`<span class="st st-cont">계속 D+${age}</span>`+info;
 }
 
 function render(){
