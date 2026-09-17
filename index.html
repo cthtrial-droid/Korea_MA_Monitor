@@ -1972,7 +1972,35 @@ const daysBetween=(a,b)=>Math.round((new Date(b)-new Date(a))/86400000);
 let state={types:new Set(TYPES), q:"", sort:"stageRank", dir:-1, hwOnly:false};
 
 document.getElementById('asof').textContent = "기준일 "+META.asOf;
-document.getElementById('updated').textContent = "최종 갱신: "+META.lastUpdated;
+(function(){
+  var raw = META.lastUpdated || "";
+  var m = raw.search(/\(구 \d{4}-\d{2}-\d{2} 판\)/);
+  var cur = m > 0 ? raw.slice(0, m).trim() : raw;
+  var hist = m > 0 ? raw.slice(m).trim() : "";
+  var head = (cur.split(/\.\s/)[0] || cur).slice(0, 80);
+  var el = document.getElementById('updated');
+  el.innerHTML = '최종 갱신: <b>' + head + '</b> '
+    + '<a href="javascript:void(0)" id="upd-toggle" style="color:var(--amber);text-decoration:none">［갱신 요지 ▾］</a>'
+    + (hist ? ' <a href="javascript:void(0)" id="hist-toggle" style="color:var(--amber);text-decoration:none">［이전 이력 ▾］</a>' : '');
+  var box = document.createElement('div');
+  box.id = 'upd-body';
+  box.style.cssText = 'display:none;margin-top:10px;padding:12px 14px;border:1px solid rgba(255,255,255,.15);border-radius:8px;max-height:340px;overflow:auto;line-height:1.75;white-space:pre-wrap;font-size:13px';
+  el.parentNode.appendChild(box);
+  function show(text, link, label){
+    if (box.style.display === 'block' && box.dataset.key === label) {
+      box.style.display = 'none'; link.textContent = '［' + label + ' ▾］'; return;
+    }
+    box.textContent = text; box.style.display = 'block'; box.dataset.key = label;
+    document.querySelectorAll('#upd-toggle,#hist-toggle').forEach(function(a){
+      a.textContent = '［' + (a.id === 'upd-toggle' ? '갱신 요지' : '이전 이력') + ' ▾］';
+    });
+    link.textContent = '［' + label + ' ▴］';
+  }
+  var t1 = document.getElementById('upd-toggle');
+  t1.onclick = function(){ show(cur, t1, '갱신 요지'); };
+  var t2 = document.getElementById('hist-toggle');
+  if (t2) t2.onclick = function(){ show(hist, t2, '이전 이력'); };
+})();
 document.getElementById('foot').innerHTML = META.note +
   "<br>출처: 딜사이트, 더벨, 이데일리 마켓인, 서울경제 시그널, 인베스트조선, 헤럴드경제, 파이낸셜뉴스, 한국경제 등 공개 보도. 매일 자동 갱신·전건 교차검증 대상.";
 
